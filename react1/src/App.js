@@ -36,3 +36,29 @@ import React from 'react';
 // }
 
 // export default App;
+
+
+//Componets and props
+// function Avatar(props){
+//   return(
+//     <div>
+//         <img src={props.user.url} alt={props.user.name} />
+//         <br/>
+//         <span>{props.user.name}</span>
+//     </div>
+//   )
+
+  
+// }
+// function App(){
+//   let user ={
+//     url:"https://github.com/HenriqueACF.png",
+//     name:"Henrique"
+//   }
+
+//   return <>
+//     <Avatar user={user} />
+//   </>;
+// }
+
+export default App;
