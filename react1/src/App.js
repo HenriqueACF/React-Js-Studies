@@ -16,3 +16,23 @@ import React from 'react';
 // }
 
 // export default App;
+
+
+//JSX
+// function formatarNome(usuario){
+//   return usuario.nome+' '+usuario.sobrenome;
+// }
+
+// function App(){
+//   let usuario = {
+//     nome:'Henrique',
+//     sobrenome:'Assis'
+//   };
+
+//   return <>
+//     <div>Meu nome é: {formatarNome(usuario)} </div>
+//   </>
+    
+// }
+
+// export default App;
