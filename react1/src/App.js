@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+// import './App.css';
 
 //CRIANDO COMPONETES COMO CLASSE
 // class App extends React.Component{
@@ -61,4 +63,26 @@ import React from 'react';
 //   </>;
 // }
 
+
+const Title = styled.h1 `
+    color:#FF0000;
+    font-size:18px;
+`;
+
+const Botao = styled.button `
+    font-size:19px;
+    padding:10px 15px;
+    background-color:${props => props.color || '#00FF00'}
+`;
+
+function App(){
+    return(
+        <>
+        <Title>Titulo</Title>
+        <Botao color="#FF0000">Clique aqui</Botao>
+        <Botao color="#0000FF">Clique aqui</Botao>
+        <Botao>Clique aqui</Botao>
+        </>
+        );
+}
 export default App;
