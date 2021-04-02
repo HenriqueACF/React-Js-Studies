@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 // import './App.css';
 
@@ -64,25 +64,43 @@ import styled from 'styled-components';
 // }
 
 
-const Title = styled.h1 `
-    color:#FF0000;
-    font-size:18px;
-`;
+//Styled components
+// const Title = styled.h1 `
+//     color:#FF0000;
+//     font-size:18px;
+// `;
 
-const Botao = styled.button `
-    font-size:19px;
-    padding:10px 15px;
-    background-color:${props => props.color || '#00FF00'}
-`;
+// const Botao = styled.button `
+//     font-size:19px;
+//     padding:10px 15px;
+//     background-color:${props => props.color || '#00FF00'}
+// `;
+
+// function App(){
+//     return(
+//         <>
+//         <Title>Titulo</Title>
+//         <Botao color="#FF0000">Clique aqui</Botao>
+//         <Botao color="#0000FF">Clique aqui</Botao>
+//         <Botao>Clique aqui</Botao>
+//         </>
+//         );
+// }
+
 
 function App(){
+
+    const [contagem, setContagem] = useState(0);
+
+    const botaoAction = ()=>{
+        setContagem( contagem +1)
+    }
+
     return(
         <>
-        <Title>Titulo</Title>
-        <Botao color="#FF0000">Clique aqui</Botao>
-        <Botao color="#0000FF">Clique aqui</Botao>
-        <Botao>Clique aqui</Botao>
+            <div>{contagem} vezes</div>
+            <button onClick={botaoAction}>Adicionar +1</button>
         </>
-        );
+    )
 }
 export default App;
