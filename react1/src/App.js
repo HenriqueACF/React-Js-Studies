@@ -104,25 +104,51 @@ import styled from 'styled-components';
 //     )
 // }
 
-const Input = styled.input `
-    width:400px;
-    height:30px;
-    font-size:16px;
-    padding:10px;
-    border:1px solid #000;
-`;
+//campos de input
+// const Input = styled.input `
+//     width:400px;
+//     height:30px;
+//     font-size:16px;
+//     padding:10px;
+//     border:1px solid #000;
+// `;
 
-function App(){
-const [texto, setTexto] = useState('');
+// function App(){
+// const [texto, setTexto] = useState('');
 
-const handleInput = (e) =>{
-    setTexto(e.target.value)
-}
-    return(
-        <>
-            <Input type="text" value={texto} onChange={handleInput}/>
-            <p>{texto.length}</p>
-        </>
-    )
-}
+// const handleInput = (e) =>{
+//     setTexto(e.target.value)
+// }
+//     return(
+//         <>
+//             <Input type="text" value={texto} onChange={handleInput}/>
+//             <p>{texto.length}</p>
+//         </>
+//     )
+// }
+
+//Condicional de exibição
+// const Input = styled.input `
+//     width:400px;
+//     height:30px;
+//     font-size:16px;
+//     padding:10px;
+//     border:1px solid #000;
+// `;
+
+// function App(){
+// const [email, setEmail] = useState('');
+
+// const handleInput = (e) =>{
+//     setEmail(e.target.value)
+// }
+//     return(
+//         <>
+//             <Input type="email" value={email} onChange={handleInput}/>
+//             {email.length > 0 &&
+//                 <p>{email.length} caractere{email.length != 1 ?'s': ''}</p>
+//             }
+//         </>
+//     )
+// }
 export default App;
