@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 const InputText = styled.input `
@@ -10,9 +10,22 @@ const InputText = styled.input `
 `;
 
 function SearchBox(props){
+
+    const [text, setText] = useState('');
+
+    // function changeText(e){
+    //     setText(e.target.value)
+    // }
+
+    useEffect(()=>{
+        props.onChangeText(text);
+    }, [text])
+
     return(
         <InputText 
             type="text"
+            value={text}
+            onChange={(e)=>setText(e.target.value)}
             placeholder={props.frasePadrao ?? "Digite algo"}
         />
     );

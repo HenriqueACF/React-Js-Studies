@@ -218,12 +218,24 @@ import styled from 'styled-components';
 //Separando em componentes
 import SearchBox from './componentes/SearchBox';
 function App(){
+
+    const [searchText, setSearchText] = useState('');
+
+    function handleSearchInput(newText){
+        setSearchText(newText)
+    }
+
     return(
         <>
             <h1>Lista de Tarefas</h1>
-            <SearchBox  frasePadrao="Fraça sua busca..."/>
-            <SearchBox frasePadrao="Digite seu nome"/>
-            <SearchBox />
+            <SearchBox  
+                frasePadrao="Fraça sua busca..."
+                onChangeText={handleSearchInput}
+            />
+            {/* <SearchBox frasePadrao="Digite seu nome"/>
+            <SearchBox /> */}
+            <hr/>
+            <p>Text buscado:{searchText}</p>
         </>
     );
 }
