@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 // import './App.css';
 
@@ -154,44 +154,64 @@ import styled from 'styled-components';
 
 
 //Calculadora de gorjeta
-const Input = styled.input `
-    width:300px;
-    height:30px;
-`;
-function App(){
-    const [valor, setValor] = useState('');
-    const [gorjeta, setGorjeta] = useState('');
+// const Input = styled.input `
+//     width:300px;
+//     height:30px;
+// `;
+// function App(){
+//     const [valor, setValor] = useState('');
+//     const [gorjeta, setGorjeta] = useState('');
 
-    const handleValor = (e) =>{
-        setValor(e.target.value)
-    }
+//     const handleValor = (e) =>{
+//         setValor(e.target.value)
+//     }
 
-    const handleGorjeta = (e) =>{
-        setGorjeta(e.target.value)
-    }
+//     const handleGorjeta = (e) =>{
+//         setGorjeta(e.target.value)
+//     }
 
-    const calcGorjeta = ((valor * gorjeta)/100).toFixed(2);
-    const totalPagar = (parseFloat(valor) + parseFloat(calcGorjeta)).toFixed(2);
+//     const calcGorjeta = ((valor * gorjeta)/100).toFixed(2);
+//     const totalPagar = (parseFloat(valor) + parseFloat(calcGorjeta)).toFixed(2);
 
 
-    return(
-        <>
-        <p>Quanto deu a conta?</p>
-        <Input placeholder="Digite o valor da sua conta R$" type="number"  value={valor} onChange={handleValor}/>
-        <br/>
-        <p>Porcentagem da gorjeta</p>
-        <Input placeholder="Digite a porcentagem da gorjeta %" type="number"  value={gorjeta} onChange={handleGorjeta}/>
-        <hr/>
-            {valor > 0 &&
-            <p>Conta:R${valor}</p>
-            }
-            {gorjeta > 0 &&
-            <p>Gorjeta:({gorjeta}%) R${calcGorjeta}.</p>
-            }
-            {valor > 0 && gorjeta > 0 &&
-            <b>Total:R${totalPagar}</b>
-            }
-        </>
-    )
-}
+//     return(
+//         <>
+//         <p>Quanto deu a conta?</p>
+//         <Input placeholder="Digite o valor da sua conta R$" type="number"  value={valor} onChange={handleValor}/>
+//         <br/>
+//         <p>Porcentagem da gorjeta</p>
+//         <Input placeholder="Digite a porcentagem da gorjeta %" type="number"  value={gorjeta} onChange={handleGorjeta}/>
+//         <hr/>
+//             {valor > 0 &&
+//             <p>Conta:R${valor}</p>
+//             }
+//             {gorjeta > 0 &&
+//             <p>Gorjeta:({gorjeta}%) R${calcGorjeta}</p>
+//             }
+//             {valor > 0 && gorjeta > 0 &&
+//             <b>Total:R${totalPagar}</b>
+//             }
+//         </>
+//     )
+// }
+
+
+//Ciclo de vida UseEffect
+// function App(){
+//     const [contagem, setContagem] = useState(0);
+//     useEffect(()=>{
+//         document.title = `Contagem: ${contagem}`
+//     }, [contagem])
+
+//     function aumentarAction(){
+//         setContagem(contagem +1)
+//     }
+
+//     return(
+//         <>
+//             <h1>Contagem: {contagem}</h1>
+//             <button onClick={aumentarAction}>Adicionar</button>
+//         </>
+//     );
+// }
 export default App;
