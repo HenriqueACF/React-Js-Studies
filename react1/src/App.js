@@ -214,4 +214,17 @@ import styled from 'styled-components';
 //         </>
 //     );
 // }
+
+//Separando em componentes
+import SearchBox from './componentes/SearchBox';
+function App(){
+    return(
+        <>
+            <h1>Lista de Tarefas</h1>
+            <SearchBox  frasePadrao="Fraça sua busca..."/>
+            <SearchBox frasePadrao="Digite seu nome"/>
+            <SearchBox />
+        </>
+    );
+}
 export default App;
