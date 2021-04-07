@@ -26,6 +26,7 @@ function SearchBox(props){
             type="text"
             value={text}
             onChange={(e)=>setText(e.target.value)}
+            onKeyUp={}
             placeholder={props.frasePadrao ?? "Digite algo"}
         />
     );
