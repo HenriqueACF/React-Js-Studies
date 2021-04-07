@@ -261,6 +261,12 @@ function App(){
         setList(newList)
     }
 
+    function handleToggleDone(index){
+        let newList = [...list];
+        newList[index].done = !newList[index].done;
+        setList(newList);
+    }
+
     return(
         <>
             <h1>Lista de Tarefas</h1>
@@ -271,7 +277,18 @@ function App(){
             <hr/>
             <ul>
             {list.map((item, index)=>(
-                <li key={index}>{item.title}</li>
+                <li key={index} >
+                    {item.done &&
+                        <del>{item.title}</del>
+                    }
+                    {!item.done &&
+                        item.title
+                    }
+                    <button onClick={()=>handleToggleDone(index)}>
+                        {item.done && 'Desfazer'}
+                        {!item.done && 'Marcar'}
+                    </button>
+                </li>
             ))}
             </ul>
         </>
