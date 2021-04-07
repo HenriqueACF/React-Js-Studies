@@ -17,16 +17,25 @@ function SearchBox(props){
     //     setText(e.target.value)
     // }
 
-    useEffect(()=>{
-        props.onChangeText(text);
-    }, [text])
+    function handleKeyUp(e){
+        if(e.keyCode == 13){
+            if(props.onEnter){
+                props.onEnter(text);
+            }
+            setText('');
+        }
+    }
+
+    // useEffect(()=>{
+    //     props.onChangeText(text);
+    // }, [text])
 
     return(
         <InputText 
             type="text"
             value={text}
             onChange={(e)=>setText(e.target.value)}
-            onKeyUp={}
+            onKeyUp={handleKeyUp}
             placeholder={props.frasePadrao ?? "Digite algo"}
         />
     );

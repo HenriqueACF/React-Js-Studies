@@ -216,27 +216,65 @@ import styled from 'styled-components';
 // }
 
 //Separando em componentes
+// import SearchBox from './componentes/SearchBox';
+// function App(){
+
+//     const [searchText, setSearchText] = useState('');
+
+//     function handleSearchInput(newText){
+//         setSearchText(newText)
+//     }
+
+//     return(
+//         <>
+//             <h1>Lista de Tarefas</h1>
+//             <SearchBox  
+//                 frasePadrao="Fraça sua busca..."
+//                 onChangeText={handleSearchInput}
+//             />
+//             {/* <SearchBox frasePadrao="Digite seu nome"/>
+//             <SearchBox /> */}
+//             <hr/>
+//             <p>Text buscado:{searchText}</p>
+//         </>
+//     );
+// }
+
+//
 import SearchBox from './componentes/SearchBox';
 function App(){
-
+    
+    
+    const [list, setList] = useState([]);
     const [searchText, setSearchText] = useState('');
 
-    function handleSearchInput(newText){
-        setSearchText(newText)
+    useEffect(()=>{
+        setList([
+            {title:'Comprar o bolo', done:false},
+            {title:'Pegar o cachorro no Petshop', done:true},
+            {title:'Gravar aula',done:false}
+        ])
+    }, []);
+
+    function addAction(newItem){
+        let newList = [...list, {title:newItem, done:false}];
+        setList(newList)
     }
 
     return(
         <>
             <h1>Lista de Tarefas</h1>
-            <SearchBox  
-                frasePadrao="Fraça sua busca..."
-                onChangeText={handleSearchInput}
+            <SearchBox 
+                frasePadrao="Adicione uma tarefa"
+                onEnter={addAction}
             />
-            {/* <SearchBox frasePadrao="Digite seu nome"/>
-            <SearchBox /> */}
             <hr/>
-            <p>Text buscado:{searchText}</p>
+            <ul>
+            {list.map((item, index)=>(
+                <li key={index}>{item.title}</li>
+            ))}
+            </ul>
         </>
-    );
+    )
 }
 export default App;
