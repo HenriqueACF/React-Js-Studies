@@ -297,21 +297,62 @@ import styled from 'styled-components';
 // }
 
 //Modal
-import Modal from './componentes/Modal';
+// import Modal from './componentes/Modal';
+// function App(){
+
+//     const [modalVisible, setModalVisible] = useState(false);
+
+//     const  handleButtonClick = ()=>{
+//         setModalVisible(true);
+//     }
+//     return(
+//         <>
+//             <button onClick={handleButtonClick} >Abrir modal</button>
+//             <Modal visible={modalVisible} setVisible={setModalVisible}>
+//                 <h1>Teste de modal</h1>
+//             </Modal>
+//         </>
+//     )
+// }
+
+
+//Router
+import {BrowserRouter,Switch, Route, Link} from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/Sobre';
 function App(){
-
-    const [modalVisible, setModalVisible] = useState(false);
-
-    const  handleButtonClick = ()=>{
-        setModalVisible(true);
-    }
     return(
-        <>
-            <button onClick={handleButtonClick} >Abrir modal</button>
-            <Modal visible={modalVisible} setVisible={setModalVisible}>
-                <h1>Teste de modal</h1>
-            </Modal>
-        </>
+        <BrowserRouter>
+            <header>
+                <h1>Site</h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to='/'>Home</Link>
+                        </li>    
+                        <li>
+                            <Link to='/sobre'>Sobre</Link>
+                        </li>                    
+                    </ul>
+                </nav>
+            </header>
+            <hr/>
+            <Switch>
+                {/* onde se criam as rotas */}
+                <Route exact path='/'>
+                    <Home/>
+                </Route>
+                <Route path='/sobre'>
+                    <About/>
+                </Route>
+            </Switch>
+            <hr/>
+            <footer>
+                Rodapé
+            </footer>
+            
+        </BrowserRouter>
     )
 }
+
 export default App;
