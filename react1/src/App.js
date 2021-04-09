@@ -240,57 +240,77 @@ import styled from 'styled-components';
 //     );
 // }
 
-//
-import SearchBox from './componentes/SearchBox';
+
+//Adicionando e marcando itens
+// import SearchBox from './componentes/SearchBox';
+// function App(){
+    
+    
+//     const [list, setList] = useState([]);
+//     const [searchText, setSearchText] = useState('');
+
+//     useEffect(()=>{
+//         setList([
+//             {title:'Comprar o bolo', done:false},
+//             {title:'Pegar o cachorro no Petshop', done:true},
+//             {title:'Gravar aula',done:false}
+//         ])
+//     }, []);
+
+//     function addAction(newItem){
+//         let newList = [...list, {title:newItem, done:false}];
+//         setList(newList)
+//     }
+
+//     function handleToggleDone(index){
+//         let newList = [...list];
+//         newList[index].done = !newList[index].done;
+//         setList(newList);
+//     }
+
+//     return(
+//         <>
+//             <h1>Lista de Tarefas</h1>
+//             <SearchBox 
+//                 frasePadrao="Adicione uma tarefa"
+//                 onEnter={addAction}
+//             />
+//             <hr/>
+//             <ul>
+//             {list.map((item, index)=>(
+//                 <li key={index} >
+//                     {item.done &&
+//                         <del>{item.title}</del>
+//                     }
+//                     {!item.done &&
+//                         item.title
+//                     }
+//                     <button onClick={()=>handleToggleDone(index)}>
+//                         {item.done && 'Desfazer'}
+//                         {!item.done && 'Marcar'}
+//                     </button>
+//                 </li>
+//             ))}
+//             </ul>
+//         </>
+//     )
+// }
+
+//Modal
+import Modal from './componentes/Modal';
 function App(){
-    
-    
-    const [list, setList] = useState([]);
-    const [searchText, setSearchText] = useState('');
 
-    useEffect(()=>{
-        setList([
-            {title:'Comprar o bolo', done:false},
-            {title:'Pegar o cachorro no Petshop', done:true},
-            {title:'Gravar aula',done:false}
-        ])
-    }, []);
+    const [modalVisible, setModalVisible] = useState(false);
 
-    function addAction(newItem){
-        let newList = [...list, {title:newItem, done:false}];
-        setList(newList)
+    const  handleButtonClick = ()=>{
+        setModalVisible(true);
     }
-
-    function handleToggleDone(index){
-        let newList = [...list];
-        newList[index].done = !newList[index].done;
-        setList(newList);
-    }
-
     return(
         <>
-            <h1>Lista de Tarefas</h1>
-            <SearchBox 
-                frasePadrao="Adicione uma tarefa"
-                onEnter={addAction}
-            />
-            <hr/>
-            <ul>
-            {list.map((item, index)=>(
-                <li key={index} >
-                    {item.done &&
-                        <del>{item.title}</del>
-                    }
-                    {!item.done &&
-                        item.title
-                    }
-                    <button onClick={()=>handleToggleDone(index)}>
-                        {item.done && 'Desfazer'}
-                        {!item.done && 'Marcar'}
-                    </button>
-                </li>
-            ))}
-            </ul>
+            <button onClick={handleButtonClick} >Abrir modal</button>
+            <Modal visible={modalVisible} setVisible={setModalVisible}>
+                <h1>Teste de modal</h1>
+            </Modal>
         </>
     )
 }
