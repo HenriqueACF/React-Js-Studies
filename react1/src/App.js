@@ -365,6 +365,12 @@ function App(){
                 <Route path='/categoria'>
                     <Categoria/>
                 </Route>
+
+                {/* Ultima rota ou rota nao encontrada */}
+                {/* <Route path="*">
+                    <h5>Página não encontrada</h5>
+                    <NotFound/>
+                </Route> */}
             </Switch>
             <hr/>
             <footer>
