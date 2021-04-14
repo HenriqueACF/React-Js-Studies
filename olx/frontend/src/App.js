@@ -1,10 +1,27 @@
 import React from 'react';
-import './App.css';
+import {connect} from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-   return(
-     <>
-     </>
-   )
+import Routes from './Routes';
+
+const Page = (props) =>{
+  return(
+    <BrowserRouter>
+      <Routes/>
+    </BrowserRouter>
+  );
 }
-export default App;
+
+const mapStateToProps = (state)=>{
+  return{
+    user:state.user
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return{
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page);
