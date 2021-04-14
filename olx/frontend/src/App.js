@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-
+//Global CSS
+import './App.css';
 //Rotas
 import Routes from './Routes';
 //Components
