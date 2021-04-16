@@ -3,7 +3,7 @@ const API = {
     login:async(email, password) =>{
         //Fazer consulta ao webservice
 
-        return{}
+        return{error:'Funcionalidade Incompleta!'}
     }
 };
 
