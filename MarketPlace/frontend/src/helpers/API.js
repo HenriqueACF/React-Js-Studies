@@ -1,5 +1,18 @@
+import Cookies from 'js-cookie';
+import qs from 'qs';
+
+const   BASEAPI = 'http://alunos.b7web.com.br:501';
+
+//Requisições do tipo POST
 const apiFetchPost = async (endpoint, body) =>{
-    const res = await fetch(BASE+endpoint,{
+    if(!body.token){
+        let token = Cookies.get('token');
+        if(token){
+            body.token = token;
+        }
+    }
+
+    const res = await fetch(BASEAPI+endpoint,{
         method:'POST',
         headers:{
             'Accept':'application/json',
@@ -7,6 +20,30 @@ const apiFetchPost = async (endpoint, body) =>{
         },
         body:JSON.stringify(body)
     });
+    const json = await res.json();
+    if(json.notallowed){
+        window.location.href='/signin';
+        return;
+    }
+    return json;
+}
+
+//rEQUISIÇÕES DO TIPO GET
+const apiFetchGET = async (endpoint, body = []) =>{
+    if(!body.token){
+        let token = Cookies.get('token');
+        if(token){
+            body.token = token;
+        }
+    }
+
+    const res = await fetch(`${BASEAPI+endpoint}?${qs.stringify(body)}`);
+    const json = await res.json();
+    if(json.notallowed){
+        window.location.href='/signin';
+        return;
+    }
+    return json;
 }
 
 const API = {
